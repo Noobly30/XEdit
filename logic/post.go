@@ -2,6 +2,7 @@ package logic
 
 import (
 	"XEdit/dao/mysql"
+	"XEdit/dao/redis"
 	"XEdit/models"
 	"XEdit/pkg/snowflake"
 	"go.uber.org/zap"
@@ -54,7 +55,7 @@ func GetPostById(pid int64) (data *models.ApiPostDetail, err error) {
 		Post:	post,
 		CommunityDetail community,
 	}
-	return 
+	return
 }
 
 //获取帖子列表
@@ -191,7 +192,7 @@ func GetCommunityPostList(p *models.ParamPostList) (data []*models.ApiPostDetail
 			continue
 		}
 		postDetail := &models.ApiPostDetail{
-			AuthorName:      user.Username,
+			AuthorName:      User.Username,
 			VoteNum:         voteData[idx],
 			Post:            post,
 			CommunityDetail: community,
